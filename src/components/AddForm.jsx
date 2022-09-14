@@ -61,7 +61,7 @@ export class AddForm extends Component {
           />
         </LabelPhoneBook>
         <Button type="submit">
-          <img src={Icon} />
+          <img src={Icon} alt="Plus" />
         </Button>
       </FormPhoneBook>
     );

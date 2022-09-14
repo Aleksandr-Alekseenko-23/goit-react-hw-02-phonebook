@@ -18,7 +18,7 @@ function Contacs({ contacts, onDelete }) {
                   onDelete(id);
                 }}
               >
-                <Img src={Delete} />
+                <Img src={Delete} alt="Delete" />
               </Button>
             </Item>
           );
