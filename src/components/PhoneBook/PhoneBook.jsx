@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import AddForm from './AddForm';
-import Contacs from './Contacs';
-import FilterContact from './FilterContact';
-import { nanoid } from 'nanoid';
+import AddForm from '../AddForm/AddForm';
+import Contacs from '../Contacts/Contacs';
+import FilterContact from '../FilterContact/FilterContact';
+
 import { TitleOne, Wrapper, WrapperContact } from './PhoneBook.styled.js';
 
 export class PhoneBook extends Component {
@@ -16,18 +16,15 @@ export class PhoneBook extends Component {
     filter: '',
   };
 
-  generatorId = () => {
-    const id = nanoid();
-    return id;
-  };
-
   handleSubmit = ({ name, number, id }) => {
     const allcontacs = this.state.contacts;
     const isSameContacs = allcontacs.filter(
-      contact => contact.name === name && contact.number === number
+      contact =>
+        contact.name.toLowerCase() === name.toLowerCase() &&
+        contact.number === number
     ).length;
     if (isSameContacs) {
-      alert('qweqeqeqe');
+      alert(`${name} is already in contacts`);
     } else {
       this.setState(prevState => {
         return { contacts: [...prevState.contacts, { name, number, id }] };
@@ -56,12 +53,13 @@ export class PhoneBook extends Component {
 
   render() {
     const visibleContact = this.getVisibleContact();
+    console.log(visibleContact);
 
     return (
       <>
         <TitleOne>Phonebook</TitleOne>
         <Wrapper>
-          <AddForm id={this.generatorId} onSubmit={this.handleSubmit} />
+          <AddForm onSubmit={this.handleSubmit} />
           <WrapperContact>
             <FilterContact
               onChangeFilter={this.onChangeFilter}

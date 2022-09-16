@@ -5,7 +5,9 @@ import {
   LabelPhoneBook,
   Button,
 } from './AddForm.styled.js';
-import Icon from './../img/plus.svg';
+import Icon from './../Assets/img/plus.svg';
+import { nanoid } from 'nanoid';
+import PropTypes from 'prop-types';
 
 export class AddForm extends Component {
   state = {
@@ -22,7 +24,7 @@ export class AddForm extends Component {
 
   onHandleSubmit = e => {
     e.preventDefault();
-    this.props.onSubmit(Object.assign(this.state, { id: this.props.id() }));
+    this.props.onSubmit({ ...this.state, id: nanoid() });
     this.reset();
   };
 
@@ -69,3 +71,7 @@ export class AddForm extends Component {
 }
 
 export default AddForm;
+
+AddForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};

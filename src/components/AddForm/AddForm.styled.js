@@ -1,20 +1,26 @@
 import styled from 'styled-components';
 
+export const FormPhoneBook = styled.form`
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+`;
+
 export const InputPhoneBook = styled.input`
   background-color: white;
-  width: 500px;
+  width: 400px;
   height: 35px;
   border: none;
   outline: none;
-  margin-bottom: 30px;
   font-size: 24px;
   color: orange;
+  padding-left: 20px;
 
   &::placeholder {
     font-size: 24px;
     color: orange;
-    font-style: italic;
-    padding-left: 20px;
   }
 `;
 
@@ -25,4 +31,12 @@ export const LabelPhoneBook = styled.label`
 
   color: orange;
   font-size: 24px;
+`;
+
+export const Button = styled.button`
+  background-color: rgba(28, 28, 28, 0);
+  border-color: orange;
+  cursor: pointer;
+  width: 100px;
+  height: 100px;
 `;

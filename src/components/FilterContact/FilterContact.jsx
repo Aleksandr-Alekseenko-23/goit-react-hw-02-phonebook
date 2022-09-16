@@ -1,5 +1,6 @@
 import React from 'react';
 import { InputPhoneBook, LabelPhoneBook } from './FilterContact.styled.js';
+import PropTypes from 'prop-types';
 
 function FilterContact({ onChangeFilter, filter }) {
   return (
@@ -22,3 +23,8 @@ function FilterContact({ onChangeFilter, filter }) {
 }
 
 export default FilterContact;
+
+FilterContact.propTypes = {
+  onChangeFilter: PropTypes.func.isRequired,
+  filter: PropTypes.string.isRequired,
+};
